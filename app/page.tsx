@@ -1,8 +1,7 @@
-import * as React from "react"
-import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { HelloWorld } from "@/registry/new-york/hello-world/hello-world"
-import { ExampleForm } from "@/registry/new-york/example-form/example-form"
-import PokemonPage from "@/registry/new-york/complex-component/page"
+import { OpenInV0Button } from '@/components/open-in-v0-button';
+import { AvatarInColor } from '@/registry/colored-avatar/colored-avatar';
+import { CurrencyInput } from '@/registry/currency-input/currency-input';
+import { Textarea } from '@/registry/lined-textarea/lined-textarea';
 
 // This page displays items from the custom registry.
 // You are free to implement this with your own design as needed.
@@ -20,39 +19,48 @@ export default function Home() {
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
           <div className="flex items-center justify-between">
             <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A simple hello world component
+              Currency Input in Japanese-YEN
             </h2>
-            <OpenInV0Button name="hello-world" className="w-fit" />
+            <OpenInV0Button name="currency-input" className="w-fit" />
+          </div>
+          <div>
+            <CodeBlock />
           </div>
           <div className="flex items-center justify-center min-h-[400px] relative">
-            <HelloWorld />
+            <CurrencyInput defaultValue={123456} />
           </div>
         </div>
 
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
           <div className="flex items-center justify-between">
             <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A contact form with Zod validation.
+              Avatar with computed color
             </h2>
-            <OpenInV0Button name="example-form" className="w-fit" />
+            <OpenInV0Button name="colored-avatar" className="w-fit" />
           </div>
-          <div className="flex items-center justify-center min-h-[500px] relative">
-            <ExampleForm />
+          <div className="flex items-center justify-center min-h-[400px] relative">
+            <AvatarInColor text="ST" className="size-16 text-2xl" />
           </div>
         </div>
 
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
           <div className="flex items-center justify-between">
             <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A complex component showing hooks, libs and components.
+              Textarea with line numbers
             </h2>
-            <OpenInV0Button name="complex-component" className="w-fit" />
+            <OpenInV0Button name="lined-textarea" className="w-fit" />
           </div>
           <div className="flex items-center justify-center min-h-[400px] relative">
-            <PokemonPage />
+            <Textarea
+              wrapperClassName="w-full px-2"
+              className="h-60"
+              value={
+                "function test() {\n  const message = 'lorem ipsum...';\n  return message;\n}\n"
+              }
+            />
           </div>
         </div>
       </main>
     </div>
-  )
+  );
 }

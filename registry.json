@@ -1,62 +1,44 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "shadcn-registry",
+  "homepage": "https://shadcn.ciderjs.com",
   "items": [
     {
-      "name": "hello-world",
+      "name": "currency-input",
       "type": "registry:component",
-      "title": "Hello World",
-      "description": "A simple hello world component",
-      "registryDependencies": ["button"],
+      "title": "Currency Input",
+      "description": "A currency input component",
       "files": [
         {
-          "path": "registry/new-york/hello-world/hello-world.tsx",
+          "path": "registry/currency-input/currency-input.tsx",
           "type": "registry:component"
         }
       ]
     },
     {
-      "name": "example-form",
+      "name": "colored-avatar",
       "type": "registry:component",
-      "title": "Example Form",
-      "description": "A contact form with Zod validation.",
-      "dependencies": ["zod"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "title": "Colored Avatar",
+      "description": "A colored avatar component",
+      "dependencies": ["hsl-to-hex"],
+      "devDependencies": ["@types/hsl-to-hex"],
+      "registryDependencies": ["avatar"],
       "files": [
         {
-          "path": "registry/new-york/example-form/example-form.tsx",
+          "path": "registry/colored-avatar/colored-avatar.tsx",
           "type": "registry:component"
         }
       ]
     },
     {
-      "name": "complex-component",
+      "name": "lined-textarea",
       "type": "registry:component",
-      "title": "Complex Component",
-      "description": "A complex component showing hooks, libs and components.",
-      "registryDependencies": ["card"],
+      "title": "Lined Textarea",
+      "description": "Textarea with lined numbers",
       "files": [
         {
-          "path": "registry/new-york/complex-component/page.tsx",
-          "type": "registry:page",
-          "target": "app/pokemon/page.tsx"
-        },
-        {
-          "path": "registry/new-york/complex-component/components/pokemon-card.tsx",
+          "path": "registry/lined-textarea/lined-textarea.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/new-york/complex-component/components/pokemon-image.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/new-york/complex-component/lib/pokemon.ts",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/new-york/complex-component/hooks/use-pokemon.ts",
-          "type": "registry:hook"
         }
       ]
     }
