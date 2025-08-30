@@ -1,6 +1,6 @@
 'use client';
 import hslToHex from 'hsl-to-hex';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 
@@ -43,20 +43,21 @@ export function AvatarInColor({
     [],
   );
 
-  // 色を計算して設定する関数
-  const calculateAndSetColor = (char?: string, isRandom = false) => {
-    const code = isRandom
-      ? defineColorCode.random()
-      : defineColorCode.text(char || '');
-    const newColor = hslToHex(code * 20, ...saturationAndLuminosity);
-    setColor(newColor);
-  };
+  const calculateAndSetColor = useCallback(
+    (char?: string, isRandom = false) => {
+      const code = isRandom
+        ? defineColorCode.random()
+        : defineColorCode.text(char || '');
+      const newColor = hslToHex(code * 20, ...saturationAndLuminosity);
+      setColor(newColor);
+    },
+    [defineColorCode],
+  );
 
   // text propが変更された時に色を再計算
-  // biome-ignore lint/correctness/useExhaustiveDependencies: calculateAndSetColor is depended on defineColorCode
   useEffect(() => {
     calculateAndSetColor(text);
-  }, [text, defineColorCode]);
+  }, [text, calculateAndSetColor]);
 
   // アバタークリックで色をランダムに変更
   const handleRandomColor = () => {

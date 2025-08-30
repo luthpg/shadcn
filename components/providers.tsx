@@ -10,8 +10,8 @@ export function Providers({
     <ThemeProvider
       attribute="class"
       defaultTheme="system"
-      // disableTransitionOnChange
-      // enableSystem
+      disableTransitionOnChange
+      enableSystem
       {...props}
     >
       {children}

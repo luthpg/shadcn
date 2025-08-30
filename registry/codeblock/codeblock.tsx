@@ -2,7 +2,7 @@
 
 import { Check, Copy } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { type ComponentProps, useState } from 'react';
+import { type ComponentProps, useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   vs,
@@ -32,8 +32,13 @@ export const CodeBlock = ({
   codeTagProps,
   ...props
 }: CodeBlockProps) => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [isCopied, setIsCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
@@ -42,6 +47,10 @@ export const CodeBlock = ({
       setIsCopied(false);
     }, 2000);
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="relative w-full text-sm border rounded-lg bg-zinc-950 dark:bg-zinc-900">
@@ -53,10 +62,10 @@ export const CodeBlock = ({
       <div className="relative group">
         <SyntaxHighlighter
           language={language}
-          style={style ?? (theme === 'dark' ? vscDarkPlus : vs)}
+          style={style ?? (resolvedTheme === 'dark' ? vscDarkPlus : vs)}
           customStyle={{
+            background: 'transparent',
             padding: '16px',
-            backgroundColor: 'transparent',
             margin: 0,
             fontSize: '14px',
             lineHeight: '1.5',
