@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ModeToggle } from '@/components/mode-toggle';
 import { Separator } from '@/components/ui/separator';
 import { CodeBlock } from '@/registry/codeblock/codeblock';
@@ -11,7 +11,10 @@ export default function Home() {
   const [textAreaValue, setTextAreaValue] = useState(
     "function test() {\n  const message = 'lorem ipsum...';\n  return message;\n}\n",
   );
-  const baseUrl = window?.location?.origin ?? 'http://localhost:3000';
+  const [baseUrl, setBaseUrl] = useState('http://localhost:3000');
+  useEffect(() => {
+    setBaseUrl(window.location.origin);
+  }, []);
 
   const configs: {
     name: string;
