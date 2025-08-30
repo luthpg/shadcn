@@ -72,7 +72,7 @@ export function AvatarInColor({
     >
       <AvatarFallback
         style={{
-          backgroundColor: color,
+          background: color,
           color: '#000',
           fontWeight: 'bold',
         }}

@@ -32,7 +32,7 @@ export const CodeBlock = ({
   codeTagProps,
   ...props
 }: CodeBlockProps) => {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, theme } = useTheme();
   const [isCopied, setIsCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -53,10 +53,10 @@ export const CodeBlock = ({
   }
 
   return (
-    <div className="relative w-full text-sm border rounded-lg bg-zinc-950 dark:bg-zinc-900">
+    <div className="relative w-full text-sm border rounded-lg bg-zinc-100 dark:bg-zinc-900">
       {fileName && (
         <div className="flex items-center justify-between px-4 py-2 border-b">
-          <p className="text-xs text-zinc-400">{fileName}</p>
+          <p className="text-xs text-zinc-800 dark:text-zinc-200">{fileName}</p>
         </div>
       )}
       <div className="relative group">
@@ -64,7 +64,6 @@ export const CodeBlock = ({
           language={language}
           style={style ?? (resolvedTheme === 'dark' ? vscDarkPlus : vs)}
           customStyle={{
-            background: 'transparent',
             padding: '16px',
             margin: 0,
             fontSize: '14px',

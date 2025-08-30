@@ -45,7 +45,7 @@ export default function Home() {
     },
     {
       name: 'codeblock',
-      description: 'Code Block with Syntax Highlighting',
+      description: 'Code Block with Syntax Highlighting by Prism.js',
       component: (
         <CodeBlock
           language="typescript"
@@ -60,7 +60,7 @@ export default function Home() {
     <div className="max-w-3xl mx-auto flex flex-col min-h-svh px-4 py-8 gap-8">
       <header className="flex gap-1">
         <div className="flex-col">
-          <h1 className="text-3xl font-bold tracking-tight">Custom Registry</h1>
+          <h1 className="text-3xl font-bold tracking-tight mb-2">Ciderjs Shadcn Custom Registry</h1>
           <p className="text-muted-foreground">
             A custom registry for distributing code using shadcn.
           </p>
@@ -76,6 +76,9 @@ export default function Home() {
             key={name}
             className="flex flex-col gap-4 border rounded-lg p-4 min-h-16 relative"
           >
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold text-foreground">{name.toUpperCase()}</h1>
+            </div>
             <div className="flex items-center justify-between">
               <h2 className="text-sm text-muted-foreground sm:pl-3">
                 {description}
