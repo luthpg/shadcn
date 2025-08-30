@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     registry: ['./registry/**/*'],
   },
-  /* config options here */
+  output: 'export',
 };
 
 export default nextConfig;

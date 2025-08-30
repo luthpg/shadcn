@@ -35,9 +35,25 @@
       "type": "registry:component",
       "title": "Lined Textarea",
       "description": "Textarea with lined numbers",
+      "registryDependencies": ["textarea"],
       "files": [
         {
           "path": "registry/lined-textarea/lined-textarea.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "codeblock",
+      "type": "registry:component",
+      "title": "Codeblock",
+      "description": "Codeblock with syntax highlighting, copy button",
+      "dependencies": ["react-syntax-highlighter"],
+      "devDependencies": ["@types/react-syntax-highlighter"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/codeblock/codeblock.tsx",
           "type": "registry:component"
         }
       ]

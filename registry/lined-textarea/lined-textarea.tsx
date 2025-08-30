@@ -2,6 +2,7 @@
 'use client';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
+import { Textarea as OriginalTextarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
 
 export type TextareaProps = React.ComponentProps<'textarea'> & {
@@ -126,7 +127,7 @@ export function Textarea({
   return (
     <div
       className={cn(
-        'flex border border-solid border-gray-900 dark:border-gray-100 rounded-lg box-border',
+        'flex border border-solid border-gray-900 dark:border-gray-800 rounded-lg box-border text-base',
         wrapperClassName,
       )}
     >
@@ -135,9 +136,9 @@ export function Textarea({
         style={textAreaStyles}
         className="border-gray-800 dark:border-gray-200 text-end overflow-hidden"
       />
-      <textarea
+      <OriginalTextarea
         ref={textAreaRef}
-        className={cn('border-none outline-none p-2 w-[100%]', className)}
+        className={cn('border-none outline-none p-2', className)}
         onInput={() => displayLineNumbers()}
         onScroll={() => {
           if (linenumbersRef.current)
@@ -147,7 +148,7 @@ export function Textarea({
         {...props}
       >
         {children}
-      </textarea>
+      </OriginalTextarea>
       <canvas ref={canvasRef} className="hidden" />
     </div>
   );
