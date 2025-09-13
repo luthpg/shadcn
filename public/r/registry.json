@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcn-registry",
+  "homepage": "https://shadcn.ciderjs.com",
+  "items": [
+    {
+      "name": "currency-input",
+      "type": "registry:component",
+      "title": "Currency Input",
+      "description": "A currency input component",
+      "files": [
+        {
+          "path": "registry/currency-input/currency-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "colored-avatar",
+      "type": "registry:component",
+      "title": "Colored Avatar",
+      "description": "A colored avatar component",
+      "dependencies": ["hsl-to-hex"],
+      "devDependencies": ["@types/hsl-to-hex"],
+      "registryDependencies": ["avatar"],
+      "files": [
+        {
+          "path": "registry/colored-avatar/colored-avatar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "lined-textarea",
+      "type": "registry:component",
+      "title": "Lined Textarea",
+      "description": "Textarea with lined numbers",
+      "registryDependencies": ["textarea"],
+      "files": [
+        {
+          "path": "registry/lined-textarea/lined-textarea.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "codeblock",
+      "type": "registry:component",
+      "title": "Codeblock",
+      "description": "Codeblock with syntax highlighting, copy button",
+      "dependencies": ["react-syntax-highlighter"],
+      "devDependencies": ["@types/react-syntax-highlighter"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/codeblock/codeblock.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

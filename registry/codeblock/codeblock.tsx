@@ -32,7 +32,7 @@ export const CodeBlock = ({
   codeTagProps,
   ...props
 }: CodeBlockProps) => {
-  const { resolvedTheme, theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [isCopied, setIsCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -68,6 +68,7 @@ export const CodeBlock = ({
             margin: 0,
             fontSize: '14px',
             lineHeight: '1.5',
+            borderRadius: 'var(--radius)',
             ...customStyle,
           }}
           codeTagProps={{
